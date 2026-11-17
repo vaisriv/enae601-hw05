@@ -1,8 +1,8 @@
 { pkgs, perSystem, ... }:
 perSystem.devshell.mkShell {
-    name = "<HW_ASSIGNMENT> devshell";
+    name = "enae601-hw05 devshell";
     motd = ''
-        {141}📚 <HW_ASSIGNMENT>{reset} devshell
+        {141}📚 enae601-hw05{reset} devshell
         $(type -p menu &>/dev/null && menu)
     '';
 
