@@ -55,17 +55,10 @@ perSystem.devshell.mkShell {
         # WARN: python3 is overriden to unstable as python3Packages.cartopy is broken on release-26.05
         # https://github.com/NixOS/nixpkgs/issues/516636
         (perSystem.nixpkgs-unstable.python3.withPackages (
+            # WARN: python packages are installed via uv instead of nix (tellurion isn't in nixpkgs, only pip)
             ps: with ps; [
-                # python packages here
-                pandas
-                matplotlib
-                numpy
-                scipy
-                cartopy
-
                 # dev packages
                 uv
-                ty
             ]
         ))
 
@@ -73,6 +66,29 @@ perSystem.devshell.mkShell {
         tinymist
         hayagriva
     ];
+
+    devshell.startup = {
+        activate-venv.text =
+            # bash
+            ''
+                BLUE=$'\e[34m'
+                GREEN=$'\e[32m'
+                RED=$'\e[31m'
+                RESET=$'\e[0m'
+
+                if ! source .venv/bin/activate 2> /dev/null; then
+                    echo "uv: ''${RED}no virtual environment found!''${RESET}"
+                    echo "uv: creating virtual environment in ''${BLUE}.venv''${RESET}"
+                    uv venv --clear && source .venv/bin/activate
+                fi
+                echo "uv: loaded virtual environment from ''${BLUE}.venv''${RESET}"
+            '';
+        install-py-packages.text =
+            # bash
+            ''
+                uv pip install ty tellurion matplotlib
+            '';
+    };
 
     env = [
         {
