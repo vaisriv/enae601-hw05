@@ -1,0 +1,13 @@
+n0 = 8.72664e-4
+R = 0.011739
+dR_da = -4.3699e-6
+dR_de = 0.006217
+dR_di = -0.021808
+Omega_rate_rad = -8.3189e-7
+omega_rate_rad = 1.3652e-6
+Omega_rate = -0.1716
+omega_rate = 0.2816
+tp_rate = -7.1202e-4
+M_rate = 0.1282
+Omega_48h = -8.236
+omega_48h = 13.516

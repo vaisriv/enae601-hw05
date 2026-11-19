@@ -1,0 +1,10 @@
+rho_p = 1.922e-11
+dh = -0.873
+de = -3.79e-5
+da = -0.360
+dalta = -0.727
+daltp = 0.0073
+max_dOmega = 3.71
+max_domega = 12.86
+max_di = 0.74
+h_range = 15.59

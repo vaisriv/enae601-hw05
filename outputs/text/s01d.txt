@@ -1,0 +1,7 @@
+cowell = 102.66
+gauss = 102.66
+chao_drag = 102.66
+chao_rot = 108.19
+chao = 113.64
+rot_gain = 5.53
+zonal_gain = 5.45
